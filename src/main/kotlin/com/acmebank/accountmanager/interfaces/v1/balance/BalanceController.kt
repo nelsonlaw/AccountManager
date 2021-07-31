@@ -17,7 +17,7 @@ class BalanceController(
 ) {
 
     @GetMapping
-    @Operation(summary = "abc", description = "cde")
+    @Operation(summary = "get balance", description = "get balance")
     fun getBalance(@RequestParam accountId: Long): BalanceDto {
         accountService.validateAccountFailFast(accountId)
 

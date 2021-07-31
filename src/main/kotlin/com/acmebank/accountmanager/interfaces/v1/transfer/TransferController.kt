@@ -4,6 +4,7 @@ import com.acmebank.accountmanager.domain.account.service.AccountService
 import com.acmebank.accountmanager.domain.transfer.service.TransferService
 import com.acmebank.accountmanager.interfaces.v1.transfer.dto.TransferDto
 import com.acmebank.accountmanager.interfaces.v1.transfer.dto.toDto
+import io.swagger.v3.oas.annotations.Operation
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 class TransferController(private val transferService: TransferService, private val accountService: AccountService) {
 
     @PostMapping
+    @Operation(summary = "create transfer", description = "create transfer")
     fun createTransfer(@RequestBody transfer: TransferDto): TransferDto {
         accountService.validateAccountFailFast(transfer.initiatorAccountId)
         accountService.validateAccountFailFast(transfer.counterpartAccountId)
