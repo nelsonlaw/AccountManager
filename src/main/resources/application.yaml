@@ -1,1 +1,10 @@
-
+spring:
+  datasource:
+    platform: h2
+    url: jdbc:h2:file:./h2
+    driver-class-name: org.h2.Driver
+server:
+  compression:
+    enabled: true
+  http2:
+    enabled: true
