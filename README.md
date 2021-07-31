@@ -60,8 +60,9 @@ transfer histories. To improve performance, can run batch job to generate carry 
 snapshot on start of day or start of month to avoid repetitive calculation
 
 Pro:
+* It is easier to audit transfer records
 
-* It is easier to audit transfer records Con:
+Con:
 * It is harder to guarantee data consistency with this approach. Possible way:
 * table lock, transfer record can only be input one at a time.
 * row lock on account
@@ -80,7 +81,6 @@ Pro:
     * endpoints are documented
   * meaningful response status code
 * API versioning
-* meaningful status code
 * support http2
 * Response is compressed with gzip
 * Database schema versioning
