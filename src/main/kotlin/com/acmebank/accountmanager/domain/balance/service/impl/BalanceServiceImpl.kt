@@ -27,6 +27,7 @@ class BalanceServiceImpl(
         val balance = balanceRepository.getOneByAccountId(accountId)
         val newBalance = balance.amount.plus(amount)
         val numOfRecordUpdated = balanceRepository.updateBalance(
+            balanceId = balance.id,
             accountId = accountId,
             oldBalance = balance.amount,
             newBalance = newBalance,

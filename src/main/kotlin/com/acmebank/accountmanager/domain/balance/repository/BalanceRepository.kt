@@ -15,9 +15,10 @@ interface BalanceRepository : JpaRepository<Balance, Long> {
     @Modifying
     @Query(
         "update Balance balance set balance.amount = :newBalance, balance.lastUpdateTime = :updateTime " +
-                "where balance.accountId = :accountId and balance.amount = :oldBalance and balance.lastUpdateTime = :lastUpdateTime"
+                "where balance.id = :balanceId and balance.accountId = :accountId and balance.amount = :oldBalance and balance.lastUpdateTime = :lastUpdateTime"
     )
     fun updateBalance(
+        @Param("balanceId") balanceId: Long,
         @Param("accountId") accountId: Long,
         @Param("oldBalance") oldBalance: BigDecimal,
         @Param("newBalance") newBalance: BigDecimal,
