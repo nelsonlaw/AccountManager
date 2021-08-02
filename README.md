@@ -50,7 +50,7 @@ In this project, I use optimistic lock and retry mechanism
   * Pro:
     * Cleaner and easier to understand application logic
   * Con:
-    * Worse performance, can introduce slowness on other read only query, but can be remedied with MVCC support
+    * Worse performance, can introduce slowness on other read only query
     * Need to handle deadlock, possibly by sequentially locking database row in id order.
 
 ### Other alternative architecture
